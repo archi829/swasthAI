@@ -8,6 +8,7 @@ require('dotenv').config();
 const authRoutes = require('./routes/auth');
 const documentRoutes = require('./routes/documents');
 const transcribeRoutes = require('./routes/transcribe');
+const summarizeRoutes = require('./routes/summarize');
 
 const app = express();
 
@@ -34,6 +35,7 @@ app.get('/api/health', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/documents', documentRoutes);
 app.use('/api/transcribe', transcribeRoutes);
+app.use('/api/summarize', summarizeRoutes);
 
 const PORT = process.env.PORT || 4000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/altos';
